@@ -11,5 +11,6 @@ function GetUsers(){
 
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    $db->conn = null;
     return $users;
 }

@@ -18,6 +18,8 @@ function CreateUser() {
     echo 'Usuário cadastrado com sucesso!';
 
     header('Location: index.php');
+
+    $db->conn = null;
 }
 
 CreateUser();
