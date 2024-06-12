@@ -12,8 +12,13 @@ class Database {
     }
 
     function initConnection(){
-        $conn = new PDO("mysql:host=$this->host;dbname=$this->db_name", $this->username, $this->password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $conn;
+        try {
+            $conn = new PDO("mysql:host=$this->host;dbname=$this->db_name", $this->username, $this->password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
+        } catch(PDOException $e) {
+            echo "A conexão falhou.";
+            die();
+        }
     }
 }
